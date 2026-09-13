@@ -3,6 +3,7 @@ import { ArtifactDrawer } from './components/ArtifactDrawer';
 import { BookmarkNav } from './components/BookmarkNav';
 import { CaseStudyModal } from './components/CaseStudyModal';
 import { ChapterSpread } from './components/ChapterSpread';
+import { CinematicIntro } from './components/CinematicIntro';
 import { FieldFooter } from './components/FieldFooter';
 import { OpeningCover } from './components/OpeningCover';
 import { RecruiterView } from './components/RecruiterView';
@@ -26,6 +27,7 @@ const CHAPTER_BACKGROUNDS: Record<string, string> = {
 };
 
 export function App() {
+  const [isIntroComplete, setIsIntroComplete] = useState(false);
   const [isOpen, setIsOpen] = useState(false);
   const [currentChapter, setCurrentChapter] = useState(0);
   const [isRecruiterOpen, setIsRecruiterOpen] = useState(false);
@@ -91,6 +93,9 @@ export function App() {
   // Keyboard navigation (Arrow keys, Space, Enter)
   useEffect(() => {
     const handleKeyDown = (e: KeyboardEvent) => {
+      // While intro animation is playing, let CinematicIntro handle skipping
+      if (!isIntroComplete) return;
+
       if (!isOpen) {
         if (e.key === 'Enter' || e.key === ' ') {
           e.preventDefault();
@@ -119,7 +124,7 @@ export function App() {
 
     window.addEventListener('keydown', handleKeyDown);
     return () => window.removeEventListener('keydown', handleKeyDown);
-  }, [isOpen, isRecruiterOpen, isArtifactsOpen, handleNext, handlePrev]);
+  }, [isOpen, isIntroComplete, isRecruiterOpen, isArtifactsOpen, handleNext, handlePrev]);
 
   const chapter = CHAPTERS[currentChapter];
 
@@ -128,8 +133,17 @@ export function App() {
       className="min-h-screen text-[#171717] flex flex-col justify-between selection:bg-[#C25E3E]/20 selection:text-ink relative overflow-hidden"
       style={{ background: '#141815' }}
     >
+      {/* ── 0. Cinematic Intro Animation Sequence ── */}
+      {!isIntroComplete && (
+        <CinematicIntro onComplete={() => setIsIntroComplete(true)} />
+      )}
+
       {/* ── 1. Full Opening Cover Experience ── */}
-      <OpeningCover isOpen={isOpen} onOpen={() => setIsOpen(true)} />
+      <OpeningCover
+        isOpen={isOpen}
+        onOpen={() => setIsOpen(true)}
+        canOpen={isIntroComplete}
+      />
 
       {/* ── 2. Main Open Notebook View ── */}
       {isOpen && (

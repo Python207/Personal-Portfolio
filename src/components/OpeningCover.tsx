@@ -4,9 +4,10 @@ import React, { useEffect, useState } from 'react';
 interface OpeningCoverProps {
   onOpen: () => void;
   isOpen: boolean;
+  canOpen?: boolean;
 }
 
-export const OpeningCover: React.FC<OpeningCoverProps> = ({ onOpen, isOpen }) => {
+export const OpeningCover: React.FC<OpeningCoverProps> = ({ onOpen, isOpen, canOpen = true }) => {
   const [phase, setPhase] = useState<'quiet' | 'ink' | 'ready'>('quiet');
 
   useEffect(() => {
@@ -20,7 +21,7 @@ export const OpeningCover: React.FC<OpeningCoverProps> = ({ onOpen, isOpen }) =>
 
   // Direct keyboard listener on OpeningCover to guarantee Enter and Space always open the notebook
   useEffect(() => {
-    if (isOpen) return;
+    if (isOpen || !canOpen) return;
     const handleKeyDown = (e: KeyboardEvent) => {
       if (e.key === 'Enter' || e.key === ' ') {
         e.preventDefault();
@@ -29,7 +30,7 @@ export const OpeningCover: React.FC<OpeningCoverProps> = ({ onOpen, isOpen }) =>
     };
     window.addEventListener('keydown', handleKeyDown);
     return () => window.removeEventListener('keydown', handleKeyDown);
-  }, [isOpen, onOpen]);
+  }, [isOpen, canOpen, onOpen]);
 
   if (isOpen) return null;
 
