@@ -73,9 +73,8 @@ export const CinematicIntro: React.FC<CinematicIntroProps> = ({ onComplete }) =>
 
   return (
     <div
-      className={`fixed inset-0 z-[100] bg-[#0A0E0B] flex flex-col justify-between p-7 sm:p-14 select-none transition-opacity duration-700 ease-out ${
-        isDissolving ? 'opacity-0 pointer-events-none' : 'opacity-100'
-      }`}
+      className={`fixed inset-0 z-[100] bg-[#0A0E0B] flex flex-col justify-between p-7 sm:p-14 select-none transition-opacity duration-700 ease-out ${isDissolving ? 'opacity-0 pointer-events-none' : 'opacity-100'
+        }`}
     >
       {/* Micro film grain overlay */}
       <div className="absolute inset-0 paper-grain-fine pointer-events-none opacity-25" />
@@ -105,9 +104,8 @@ export const CinematicIntro: React.FC<CinematicIntroProps> = ({ onComplete }) =>
 
             {/* City Name */}
             <div
-              className={`transition-all duration-500 ${
-                scene1Sub >= 1 ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-3'
-              }`}
+              className={`transition-all duration-500 ${scene1Sub >= 1 ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-3'
+                }`}
             >
               <h2 className="font-serif text-4xl sm:text-5xl lg:text-6xl text-[#FFFDF8] font-normal tracking-[0.14em] uppercase">
                 Nainital
@@ -116,9 +114,8 @@ export const CinematicIntro: React.FC<CinematicIntroProps> = ({ onComplete }) =>
 
             {/* Archival Status */}
             <div
-              className={`transition-all duration-500 font-mono text-[10.5px] tracking-[0.26em] flex items-center gap-2 ${
-                scene1Sub >= 2 ? 'opacity-100' : 'opacity-0'
-              }`}
+              className={`transition-all duration-500 font-mono text-[10.5px] tracking-[0.26em] flex items-center gap-2 ${scene1Sub >= 2 ? 'opacity-100' : 'opacity-0'
+                }`}
               style={{ color: '#72C589' }}
             >
               <span className="w-2 h-0.5 bg-[#72C589]" />
@@ -243,3 +240,4 @@ export const CinematicIntro: React.FC<CinematicIntroProps> = ({ onComplete }) =>
 };
 
 export default CinematicIntro;
+
