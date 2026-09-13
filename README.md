@@ -1,4 +1,4 @@
-# Mohit Sharma // Field Notes 🌲
+# Mohit Sharma // Field Notes 
 
 > **An Unfinished Map of a Journey.**  
 > An archival editorial field journal documenting an unconventional journey from Nainital to BITS Pilani, code, startups, finance, and engineering.
@@ -9,13 +9,13 @@
 
 ---
 
-## 🌐 Live Production
+## Live Production
 Explore the live, interactive portfolio at:  
 👉 **[https://mohitsharma-portfolio-207.vercel.app/](https://mohitsharma-portfolio-207.vercel.app/)**
 
 ---
 
-## 🛠️ Complete Tech Stack
+## Complete Tech Stack
 
 | Category | Technology | Purpose & Usage |
 | :--- | :--- | :--- |
@@ -31,7 +31,7 @@ Explore the live, interactive portfolio at:
 
 ---
 
-## 🧭 Architectural Highlights & Features
+## Architectural Highlights & Features
 
 ### 1. 4-Scene Cinematic Intro Sequence (`CinematicIntro.tsx`)
 - **Scene 1 (Location):** GPS coordinate resolve (`29.3919° N, 79.4542° E`) with a rotating compass, serif title reveal (`NAINITAL`), and archival status tag `[ LOCATION FOUND ]`.
@@ -63,7 +63,7 @@ Explore the live, interactive portfolio at:
 
 ---
 
-## 🚀 Local Development Setup
+## Local Development Setup
 
 Clone the repository and run the project locally:
 
@@ -85,7 +85,7 @@ Visit `http://localhost:3000` in your browser.
 
 ---
 
-## 📦 Production Build
+## Production Build
 
 To create an optimized production build:
 
@@ -97,7 +97,7 @@ This compiles TypeScript (`tsc`) and outputs the production-ready assets to the 
 
 ---
 
-## 👤 Author
+## Author
 
 **Mohit Sharma**  
 - **College:** BITS Pilani ('27)  
